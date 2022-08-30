@@ -1,0 +1,74 @@
+{
+	"name": "conditionally",
+	"version": "1.0.0",
+	"description": "Conditionally run scripts in your package.json",
+	"main": "dist/index.js",
+	"bin": "bin/index.js",
+	"scripts": {
+		"dev": "NODE_ENV=development rollup -c -w",
+		"postinstall": "yarn dlx @yarnpkg/sdks vscode",
+		"build": "NODE_ENV=production tsc --noEmit && rollup -c",
+		"test-script": "node ./bin/index.js TEST_ENV --not testval && echo hello"
+	},
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/jarm0785/conditionally.git"
+	},
+	"keywords": [
+		"env",
+		"environment",
+		"cli",
+		"command",
+		"cmd",
+		"execute",
+		"run",
+		"file",
+		"variables",
+		"config"
+	],
+	"engines": {
+		"node": ">=8.0.0"
+	},
+	"author": "Jorge Ramirez",
+	"license": "MIT",
+	"bugs": {
+		"url": "https://github.com/jarm0785/conditionally/issues"
+	},
+	"homepage": "https://github.com/jarm0785/conditionally#readme",
+	"dependencies": {
+		"env-cmd": "^10.1.0",
+		"minimist": "^1.2.6"
+	},
+	"devDependencies": {
+		"@rollup/plugin-commonjs": "^22.0.2",
+		"@rollup/plugin-json": "^4.1.0",
+		"@rollup/plugin-node-resolve": "^13.3.0",
+		"@rollup/plugin-typescript": "^8.4.0",
+		"@types/minimist": "^1.2.2",
+		"@types/node": "^18.7.13",
+		"@typescript-eslint/eslint-plugin": "^5.35.1",
+		"@typescript-eslint/parser": "^5.35.1",
+		"eslint": "^8.23.0",
+		"eslint-config-xo": "^0.42.0",
+		"eslint-config-xo-typescript": "^0.53.0",
+		"eslint-define-config": "^1.6.0",
+		"eslint-plugin-import": "^2.26.0",
+		"eslint-plugin-node": "^11.1.0",
+		"prettier": "^2.7.1",
+		"prettier-config-xo": "^2.0.0",
+		"rollup": "^2.78.1",
+		"rollup-plugin-delete": "^2.0.0",
+		"rollup-plugin-terser": "^7.0.2",
+		"tslib": "^2.4.0",
+		"typescript": "^4.8.2",
+		"xo": "^0.52.2"
+	},
+	"packageManager": "yarn@3.2.3",
+	"eslintConfig": {
+		"extends": [
+			"xo",
+			"xo-typescript"
+		]
+	},
+	"prettier": "prettier-config-xo"
+}

@@ -1,0 +1,11 @@
+node_modules
+dist
+.yarn/cache
+.yarn/sdks
+.yarh/unplugged
+.yarn/install-state.gz
+.pnp.cjs
+.pnp.loader.mjs
+.env
+package-lock.json
+.vscode
