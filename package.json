@@ -1,14 +1,16 @@
 {
 	"name": "conditionally",
 	"version": "1.0.0",
-	"description": "Conditionally run scripts in your package.json",
+	"description": "Conditionally run package.json scripts based on environment variables' values.",
 	"main": "dist/index.js",
 	"bin": "bin/index.js",
 	"scripts": {
-		"dev": "NODE_ENV=development rollup -c -w",
+		"preinstall": "npx only-allow yarn",
 		"postinstall": "yarn dlx @yarnpkg/sdks vscode",
+		"dev": "NODE_ENV=development rollup -c -w",
 		"build": "NODE_ENV=production tsc --noEmit && rollup -c",
-		"test-script": "node ./bin/index.js TEST_ENV --not testval && echo hello"
+		"test-script": "node ./bin/index.js TEST_ENV --not testval && echo hello",
+		"pub": "yarn build && yarn npm version patch --force && yarn npm publish"
 	},
 	"repository": {
 		"type": "git",
