@@ -9,6 +9,7 @@
 		"dev": "rollup -c -w",
 		"build": "rollup -c --environment BUILD:production",
 		"test": "TS_NODE_PROJECT=tsconfig.tests.json mocha -r ts-node/register ./tests/**/*.ts",
+		"lint": "xo --fix",
 		"pub": "yarn build && yarn version --patch && yarn npm publish"
 	},
 	"repository": {
@@ -68,13 +69,10 @@
 		"eslint-plugin-node": "^11.1.0",
 		"execa": "^6.1.0",
 		"mocha": "^10.0.0",
-		"prettier": "^2.7.1",
-		"prettier-config-xo": "^2.0.0",
 		"rollup": "^2.78.1",
 		"rollup-plugin-delete": "^2.0.0",
 		"rollup-plugin-terser": "^7.0.2",
 		"sinon": "^14.0.0",
-		"ts-mocha": "^10.0.0",
 		"ts-node": "^10.9.1",
 		"tslib": "^2.4.0",
 		"typescript": "^4.8.2",
@@ -85,7 +83,10 @@
 		"extends": [
 			"xo",
 			"xo-typescript"
-		]
-	},
-	"prettier": "prettier-config-xo"
+		],
+		"parser": "@typescript-eslint/parser",
+		"parserOptions": {
+			"project": "tsconfig.eslint.json"
+		}
+	}
 }
