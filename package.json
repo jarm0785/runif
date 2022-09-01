@@ -1,6 +1,6 @@
 {
 	"name": "run-if-env",
-	"version": "1.0.1",
+	"version": "1.0.2",
 	"description": "Conditionally run package.json scripts based on environment variables' values.",
 	"main": "dist/index.js",
 	"bin": "bin/index.js",
@@ -10,7 +10,7 @@
 		"build": "rollup -c --environment BUILD:production",
 		"test": "TS_NODE_PROJECT=tsconfig.tests.json mocha -r ts-node/register ./tests/**/*.ts",
 		"lint": "xo --fix",
-		"pub": "yarn build && yarn version --patch && yarn npm publish"
+		"pub": "yarn build && yarn version patch && yarn npm publish"
 	},
 	"repository": {
 		"type": "git",
