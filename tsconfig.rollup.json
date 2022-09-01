@@ -1,0 +1,14 @@
+{
+	"compilerOptions": {
+		"target": "es2017",
+		"module": "commonjs",
+		"lib": ["es2018", "es2019", "es2020"],
+		"declaration": true,
+		"outDir": "./dist",
+		"rootDir": "src",
+		"strict": true,
+		"types": ["node", "mocha", "execa"],
+		"esModuleInterop": true
+	},
+	"include": ["./src/**/*"]
+}

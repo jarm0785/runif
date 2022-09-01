@@ -1,16 +1,15 @@
 {
 	"name": "run-if-env",
-	"version": "1.0.0",
+	"version": "1.0.1",
 	"description": "Conditionally run package.json scripts based on environment variables' values.",
 	"main": "dist/index.js",
 	"bin": "bin/index.js",
 	"scripts": {
 		"preinstall": "npx only-allow yarn",
-		"postinstall": "yarn dlx @yarnpkg/sdks vscode",
-		"dev": "NODE_ENV=development rollup -c -w",
-		"build": "NODE_ENV=production tsc --noEmit && rollup -c",
-		"test-script": "node ./bin/index.js TEST_ENV --not testval && echo hello",
-		"pub": "yarn build && yarn npm version patch --force && yarn npm publish"
+		"dev": "rollup -c -w",
+		"build": "rollup -c --environment BUILD:production",
+		"test": "TS_NODE_PROJECT=tsconfig.tests.json mocha -r ts-node/register ./tests/**/*.ts",
+		"pub": "yarn build && yarn version --patch && yarn npm publish"
 	},
 	"repository": {
 		"type": "git",
@@ -35,7 +34,7 @@
 		"README.md"
 	],
 	"engines": {
-		"node": ">=8.0.0"
+		"node": ">=14.16"
 	},
 	"author": "jarm0785",
 	"license": "MIT",
@@ -52,21 +51,31 @@
 		"@rollup/plugin-json": "^4.1.0",
 		"@rollup/plugin-node-resolve": "^13.3.0",
 		"@rollup/plugin-typescript": "^8.4.0",
+		"@types/chai": "^4.3.3",
+		"@types/execa": "^2.0.0",
 		"@types/minimist": "^1.2.2",
+		"@types/mocha": "^9.1.1",
 		"@types/node": "^18.7.13",
+		"@types/sinon": "^10.0.13",
 		"@typescript-eslint/eslint-plugin": "^5.35.1",
 		"@typescript-eslint/parser": "^5.35.1",
+		"chai": "^4.3.6",
 		"eslint": "^8.23.0",
 		"eslint-config-xo": "^0.42.0",
 		"eslint-config-xo-typescript": "^0.53.0",
 		"eslint-define-config": "^1.6.0",
 		"eslint-plugin-import": "^2.26.0",
 		"eslint-plugin-node": "^11.1.0",
+		"execa": "^6.1.0",
+		"mocha": "^10.0.0",
 		"prettier": "^2.7.1",
 		"prettier-config-xo": "^2.0.0",
 		"rollup": "^2.78.1",
 		"rollup-plugin-delete": "^2.0.0",
 		"rollup-plugin-terser": "^7.0.2",
+		"sinon": "^14.0.0",
+		"ts-mocha": "^10.0.0",
+		"ts-node": "^10.9.1",
 		"tslib": "^2.4.0",
 		"typescript": "^4.8.2",
 		"xo": "^0.52.2"

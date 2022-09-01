@@ -1,0 +1,15 @@
+{
+	"compilerOptions": {
+		"target": "ES2020",
+		"module": "NodeNext",
+		"moduleResolution": "NodeNext",
+		"lib": ["es2018", "es2019", "es2020"],
+		"types": ["mocha", "execa"],
+		"strict": true
+	},
+	"ts-node": {
+		"files": true,
+		"transpileOnly": true,
+		"esm": true
+	}
+}
